@@ -1,0 +1,34 @@
+
+  <!-- Navigation --> 
+  <nav class="navbar sticky-top navbar-toggleable-md navbar bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {{#link-to "index" class="navbar-brand" id="start"}}
+       <img title="Back to Start" alt="Start" height="50px" src="/assets/images/yin-yang.svg">
+    {{/link-to}}
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a class="nav-link" href="#">Employees</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Inhalt -->
+  <div class="container">
+    {{outlet}}
+  </div>
+  
+  <!-- Footer --> 
+  <div id="footer">
+    
+      <div class="text-right">
+        {{fa-icon "copyright"}}
+        2017 - Bernd C. Toepfer
+      </div>
+    
+  </div>
