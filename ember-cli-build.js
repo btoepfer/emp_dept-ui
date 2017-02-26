@@ -14,7 +14,7 @@ module.exports = function(defaults) {
   app.import('bower_components/tether/dist/js/tether.min.js');
 
   // bootstrap
-  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   //app.import('bower_components/bootstrap/dist/css/bootstrap.css');
     
   //
