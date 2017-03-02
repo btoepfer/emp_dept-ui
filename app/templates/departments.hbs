@@ -1,10 +1,10 @@
 <div class="row mt-4">
   <div class="col-md-4">
-    <div class="list-group entity-type-list">
+    <div class="list-group entity-type-list mt-4">
       {{#each model as |department|}}
-        <div class="list-group-item">
+        {{#link-to "departments.department.employees" department class="list-group-item dept-link"}}
           {{department.dname}}, {{department.loc}}
-        </div>
+        {{/link-to}}
       {{/each}} 
     </div>  
   </div>

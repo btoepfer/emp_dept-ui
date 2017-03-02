@@ -7,7 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('departments');
+  this.route('departments', function() {
+    this.route('department', {path: ':deptno'}, function() {
+      this.route('employees');
+    });
+  });
 });
 
 export default Router;
