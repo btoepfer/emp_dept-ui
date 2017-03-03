@@ -1,22 +1,57 @@
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Job</th>
-      <th>Hiredate</th>
-      <th>Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.employees as |employee|}}
+<div class="row mt-2">
+  <form class="form-inline">
+    <label class="sr-only" for="empno">#</label>
+    {{input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="empno" size=3 
+       placeholder="#" value=empno required="true"}}
+
+    <label class="sr-only" for="ename">Name</label>
+    {{input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="ename" size=15 
+       placeholder="Name" value=ename required="true"}}
+
+    <label class="sr-only" for="job">Job</label>
+    {{#x-select value=job class="form-control mb-2 mr-sm-2 mb-sm-0" id="job" on-change=(action "selectJob") as |job|}}
+      <option>Job...</option> 
+      {{#job.option value="MANAGER"}}MANAGER{{/job.option}}        
+      {{#job.option value="CLERK"}}CLERK{{/job.option}}      
+      {{#job.option value="SALESMEN"}}SALESMEN{{/job.option}}      
+      {{#job.option value="ANALYST"}}ANALYST{{/job.option}} 
+      {{#job.option value="PRESIDENT"}}PRESIDENT{{/job.option}}
+    {{/x-select}}
+    
+
+    <label class="sr-only" for="hiredate">Hiredate</label>
+    {{input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="hiredate" size=10 placeholder="Hiredate" value=hiredate}}
+
+    <label class="sr-only" for="salary">Salary</label>
+    {{input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="salary" size=5 placeholder="Salary" value=sal}}
+
+    <button type="submit" class="btn-sm btn-primary" {{action "createEmployee"}}>
+      {{fa-icon "plus"}}&nbsp;Add
+    </button>
+  </form>
+</div>
+
+<div class="row mt-2">
+  <table class="table table-sm">
+    <thead>
       <tr>
-        <th scope="row">{{employee.empno}}</th>
-        <td>{{employee.ename}}</td>
-        <td>{{employee.job}}</td>
-        <td>{{employee.hiredate}}</td>
-        <td>{{employee.sal}}</td>
+        <th>#</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Hiredate</th>
+        <th>Salary</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each model.employees as |employee|}}
+        <tr>
+          <th scope="row">{{employee.empno}}</th>
+          <td>{{employee.ename}}</td>
+          <td>{{employee.job}}</td>
+          <td>{{employee.hiredate}}</td>
+          <td>{{employee.sal}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
